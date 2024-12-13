@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Kue</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+
+</head>
+<body>
+
+<header class="header">
+    <a href="#" class="logo">
+        <img src="cake shop.png" alt="Cake Logo">
+    </a>
+    <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#products">Products</a>
+        <a href="#menu">Menu</a>
+        <a href="#review">Review</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="icons">
+        <div class="fas fa-search" id="search-btn"></div>
+        <div class="cart">
+            <span class="fas fa-shopping-cart" id="cart-btn"></span>
+            <span id="cart-count">0</span> <!-- Cart item count -->
+        </div>
+        <div class="fas fa-bars" id="menu-btn"></div>
+    </div>
+
+    <div class="search-form">
+        <input type="search" id="search-box" placeholder="search here...">
+        <label for="search-box" class="fas fa-search"></label>
+    </div>
+    <div id="results-container"></div>
+
+    <div class="cart-item-container">
+        <h2>Cart Items</h2>
+        <section class="cart-item">
+            <div class="cart-items-list">
+            </div>
+        </section>
+        <div id="total-price">Total: Rp. 0</div>
+        <a href="#" class="btnco" id="checkout-button">Checkout Now</a>
+    </div>
+</header>
+
+<section class="home" id="home">
+    <div class="content">
+        <h3><span style="background-color: rgb(250, 250, 249); padding: 0 4px;">a sweet cake for begin your day</span></h3>
+        <p><span style="background-color: rgb(250, 250, 249); padding: 0 4px;">Start your day with the perfect touch of sweetness! 
+            Indulge in our delicious cakes, crafted to give you the energy and joy you need in every bite. 
+            With a soft and rich flavor, our cakes are not just a snack but the ideal way to begin your day with a smile. 
+            Made from high-quality ingredients, each slice offers a delightful blend of sweetness that's sure to brighten your day. 
+            Treat yourself to the sweetness of our cakes and experience the difference!</span></p>
+             <button class="btnhome" onclick="scrollToMenu()">Get Yours Now</button>
+    </div>
+</section>
+
+<section class="about" id="about">
+    <h1 class="heading"> <span>About</span> us </h1>
+    <div class="row">
+        <div class="image">
+            <img src="about kue.jpg" alt="kue 2">
+        </div>
+
+        <div class="content">
+            <h3>What makes our cake special?</h3>
+            <p>Behind every bite of our cake lies a perfect blend of flavor, quality, and unparalleled love. 
+                What makes our cakes so special? 
+                <span id="dots"></span>
+                <span id="more" style="display: none;"> We use fresh, high-quality ingredients, free from preservatives, to create authentic and satisfying tastes. 
+                Each recipe has been developed with care and expertise, ensuring a soft texture and rich flavor. 
+                Additionally, we offer a wide variety of options suitable for every occasion, from birthdays to special celebrations. 
+                With eye-catching designs and mouthwatering flavors, our cakes not only delight the palate but also captivate the eyes.
+                Make your moments more memorable with our cakes, because every slice is an experience worth celebrating.</span>
+            </p>
+            <button class="btnabout" onclick="myFunction()" id="myBtn">Learn More</button>
+        </div>
+    </div>
+</section>
+
+<section class="charts">
+    <h1>Sales Overview</h1>
+    <div class="chart-section">
+        <canvas id="myChart" width="400" height="200"></canvas>
+        <canvas id="pieChart" width="400" height="200"></canvas>
+    </div>
+</section>
+
+ 
+
+
+<section class="products" id="products">
+    <h1>  our <span>Best</span> Seller<span> Cakes</span></h1>
+    <div class="box-container-prod">
+        <div class="box">
+            <div class="image" onclick="toggleDescription(this)">
+                <img src="kue 1.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>Orange Cake</h3>
+                <p class="description">Indulge in the unparalleled freshness and delightful taste of our orange cake! 
+                    Baked with love, this cake features a soft texture and an irresistible flavor that captivates the senses.
+                    The perfect blend of fresh orange aroma and tender crumb creates an unforgettable tasting experience. 
+                    Each bite offers a delightful balance of sweetness and citrus tang, 
+                    making it ideal for any special occasion—be it a birthday celebration, a gathering, or simply a light afternoon treat.
+                    Don't miss the chance to savor this exquisite orange cake—your order is waiting!</p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image" onclick="toggleDescription(this)">
+                <img src="kue 2.jpg" alt="">
+            </div>   
+            <div class="content">
+                <h3>Matcha Cake</h3>
+                <p class="description">Experience the exquisite taste of our matcha cake, a delightful treat that brings the unique flavors of Japan right to your table! 
+                    This enchanting cake is made with premium matcha green tea powder, offering a vibrant color and a rich, 
+                    earthy flavor that's both refreshing and indulgent. Each slice is incredibly moist and fluffy, 
+                    complemented by a hint of sweetness that perfectly balances the natural bitterness of matcha. 
+                    Whether enjoyed as a special dessert at celebrations or a daily pick-me-up with your tea or coffee, 
+                    our matcha cake promises a delightful experience for your taste buds.
+                    Treat yourself to this elegant dessert—your taste of tradition and luxury awaits!</p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="image" onclick="toggleDescription(this)">
+                <img src="kue 3.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>Chocolate Cake</h3>
+                <p class="description">Indulge in the decadent delight of our rich chocolate cake, a true paradise for chocolate lovers! 
+                    Each layer of this heavenly cake is made with the finest cocoa, ensuring a deep, intense flavor that melts in your mouth. 
+                    The cake is incredibly moist and velvety, perfectly complemented by a luscious chocolate frosting that adds an extra touch of sweetness. 
+                    Whether you're celebrating a special occasion or simply treating yourself to a well-deserved dessert, 
+                    our chocolate cake is sure to satisfy your cravings and bring a smile to your face. 
+                    Don't miss out on this irresistible chocolate experience—order yours today and indulge in pure bliss!</p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="image" onclick="toggleDescription(this)">
+                <img src="kue 4.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>Carrot Cake</h3>
+                <p class="description">Savor the wholesome goodness of our delightful carrot cake, 
+                    a perfect blend of flavor and texture that will leave your taste buds wanting more! 
+                    Made with freshly grated carrots and a medley of spices, this moist cake is not only delicious but also packed with nutrients. 
+                    Each bite offers a harmonious balance of sweetness and warmth, enhanced by a creamy cream cheese frosting that perfectly 
+                    complements the rich flavor of the cake. Ideal for any occasion, from birthdays to afternoon tea, 
+                    our carrot cake is a timeless classic that promises to bring joy to your table. 
+                    Treat yourself to a slice of happiness—order your carrot cake today!</p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<section class="menu" id="menu">
+    <h1>Order <span>Yours</span> Now!</h1>
+    <div class="box-container">
+
+        <div class="box">
+            <img src="kue 1.jpg" alt="">
+            <h3>Orange Cake</h3>
+            <div class="price">Rp. 28,000</div>
+            <button class="btnmenu">Add To Cart</button>
+        </div>
+
+        <div class="box">
+            <img src="kue 2.jpg" alt="">
+            <h3>Matcha Cake</h3>
+            <div class="price">Rp. 32,000</div>
+            <button class="btnmenu">Add To Cart</button>
+        </div>
+
+        <div class="box">
+            <img src="kue 3.jpg" alt="">
+            <h3>Chocolate Cake</h3>
+            <div class="price">Rp. 30,000</div>
+            <button class="btnmenu">Add To Cart</button>
+        </div>
+
+        <div class="box">
+            <img src="kue 4.jpg" alt="">
+            <h3>Carrot Cake</h3>
+            <div class="price">Rp. 25,000</div>
+            <button class="btnmenu">Add To Cart</button>
+        </div>
+
+        <div class="box">
+            <img src="kue 5.jpg" alt="">
+            <h3>Blueberries Cake</h3>
+            <div class="price">Rp. 30,000</div>
+            <button class="btnmenu">Add To Cart</button>
+        </div>
+
+        <div class="box">
+            <img src="kue 6.jpg" alt="">
+            <h3>Cookies-cream Cake</h3>
+            <div class="price">Rp. 28,000</div>
+            <button class="btnmenu">Add To Cart</button>
+        </div>
+
+        <div class="box">
+            <img src="kue 7.jpg" alt="">
+            <h3>Strawberry-choco Cake</h3>
+            <div class="price">Rp. 32,000</div>
+            <button class="btnmenu">Add To Cart</button>
+        </div>
+
+        <div class="box">
+            <img src="kue 8.jpg" alt="">
+            <h3>Lotus Cake</h3>
+            <div class="price">Rp. 40,000</div>
+            <button class="btnmenu">Add To Cart</button>
+        </div>
+
+        <div class="box">
+            <img src="kue 9.jpg" alt="">
+            <h3>Red Velvet Cake</h3>
+            <div class="price">Rp. 40,000</div>
+            <button class="btnmenu">Add To Cart</button>
+        </div>
+
+        <div class="box">
+            <img src="kue 10.jpg" alt="">
+            <h3>Rainbow Cake</h3>
+            <div class="price">Rp. 45,000</div>
+            <button class="btnmenu">Add To Cart</button>
+        </div>
+
+        <div class="box">
+            <img src="kue 11.jpg" alt="">
+            <h3>Caramel Cake</h3>
+            <div class="price">Rp. 35,000</div>
+            <button class="btnmenu">Add To Cart</button>
+        </div>
+
+        <div class="box">
+            <img src="kue 12.jpg" alt="">
+            <h3>Vanilla Cake</h3>
+            <div class="price">Rp. 25,000</div>
+            <button class="btnmenu">Add To Cart</button>
+        </div>      
+        </div>
+    </div>
+</section>
+
+<section class="review" id="review">
+    <h1 class="heading">customer's <span>review</span></h1>
+
+    <!-- Form for submitting new reviews -->
+    <form id="reviewForm">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <textarea id="reviewtext" placeholder="Write your review" required></textarea>
+        <select id="rating" required>
+            <option value="5">★★★★★</option>
+            <option value="4">★★★★</option>
+            <option value="3">★★★</option>
+            <option value="2">★★</option>
+            <option value="1">★</option>
+        </select>
+        <button type="submit">Submit Review</button>
+    </form>
+
+    <div class="box-container" id="reviewContainer">
+        <!-- Existing reviews go here -->
+    </div>
+</section>
+
+<section class="contact" id="contact">
+
+    <h1 class="heading" ; > <span>Find Us </span> Here!</h1>
+    <div class="row">
+        <iframe class= "map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!
+        1d15844.51420160082!2d107.59771172470894!3d-6.875197660493509!2m3!1f0!2f0!3f0!3m2!1i1024!2i
+        768!4f13.1!3m3!1m2!1s0x2e68e6ee129c896d%3A0xb01ca182dac12846!2sUniversitas%20Katolik%20Parahyangan
+        !5e0!3m2!1sen!2sid!4v1729861912982!5m2!1sen!2sid" width="600" height="450" style="border:0;" 
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <form id="contactForm" onsubmit="return handleSubmit(event)">
+            <h3>Join Our Membersip!! To get a special promo</h3>
+            <div class="inputBox">
+                <span class="fas fa-user"></span>
+                <input type="text" placeholder="Name" id="name" required>
+            </div>
+            <div class="inputBox">
+                <span class="fas fa-envelope"></span>
+                <input type="email" placeholder="Email" id="email" required>
+            </div>
+            <div class="inputBox">
+                <span class="fas fa-phone"></span>
+                <input type="text" placeholder="Number" id="number" oninput="validateInput(event)"  required>
+            </div>
+            <div id="notification" class="notification"></div> <!-- Elemen untuk notifikasi -->
+            <input type="submit" value="Join Now" class="btncontact">
+        </form>
+    </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
